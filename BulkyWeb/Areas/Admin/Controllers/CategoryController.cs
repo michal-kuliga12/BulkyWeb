@@ -59,7 +59,7 @@ public class CategoryController : Controller
         if (categoryFromDb == null)
             return NotFound();
 
-        return View();
+        return View(categoryFromDb);
     }
     [HttpPost]
     public IActionResult Edit(Category obj, int? id)
@@ -71,7 +71,7 @@ public class CategoryController : Controller
             TempData["success"] = "Category edited successfully";
             return RedirectToAction("Index");
         }
-        return View();
+        return View(obj);
     }
 
     public IActionResult Delete(int? id)
